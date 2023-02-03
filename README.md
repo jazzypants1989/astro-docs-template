@@ -5,9 +5,13 @@ This is a template that leverages the Content Collections API to automatically c
 ## How to Use This Template
 
 1.) Download or fork the repo into the folder of your choice.
+
 2.) Run `npm install` / `yarn install` / `pnpm install` to install dependencies.
+
 3.) Run `npm run dev` / `yarn dev` / `pnpm dev` to start the dev server.
+
 4.) Start writing markdown files in the `content` folder. You can create new folders and subfolders to organize your content.
+
 5.) When you're ready to deploy, run `npm run build` / `yarn build` / `pnpm build` to build the site. The output will be in the `dist` folder.
 
 ## How to Customize This Template
