@@ -28,6 +28,8 @@ Other than that, the main thing you'll want to change is the logo. The SVG logo 
 
 ## Known Issues
 
+- The mobile design is awful and breaks. It worked better two days ago before I shifted things around.
+
 - The active page in the Table of Contents is not highlighted. It works in dev, but not in production. I'm not sure why. I'm sure it's something simple, but I only just noticed it. I'll fix it eventually.
 
 ## Credits
