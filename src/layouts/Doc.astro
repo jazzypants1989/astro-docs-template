@@ -17,7 +17,7 @@ function mdOrMdx(bool: boolean) {
 // This is literally the entire reason for the mdx prop.
 // If we can find another way to see if the page is mdx or md, we can remove this prop
 
-const pageWithExtension = currentPage + mdOrMdx(mdx!)
+const pageWithExtension = currentPage.slice(0, -1) + mdOrMdx(mdx!)
 
 const contentPage = pageWithExtension.replace("/docs", "src/content/docs")
 ---
