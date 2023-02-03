@@ -42,6 +42,11 @@ details > a:hover {
   background-color: transparent;
 }
 
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 @media prefers-reduced-motion {
   * {
     animation: none !important;

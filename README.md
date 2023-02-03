@@ -26,6 +26,10 @@ Other than that, the main thing you'll want to change is the logo. The SVG logo 
 
 [Here's a link to the Astro docs about deploying an Astro website.](https://docs.astro.build/en/guides/deploy/)
 
+## Known Issues
+
+- The active page in the Table of Contents is not highlighted. It works in dev, but not in production. I'm not sure why. I'm sure it's something simple, but I only just noticed it. I'll fix it eventually.
+
 ## Credits
 
 I completely stole the initial layout from [The Create-T3-App Docs](https://create.t3.gg/en/introduction). Shout out to all the great people working on that project. This template was created while making the docs for [QGP](https://qgp.app). Big props to [Parasocial Fix/JLarky](https://twitter.com/JLarky) for his awesome project.
