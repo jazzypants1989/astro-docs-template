@@ -7,7 +7,7 @@ type Props = CollectionEntry<"docs">["data"]
 const { title, description, pubDate, updatedDate, image, video, mdx } =
   Astro.props as Props
 
-const currentPage = Astro.url.pathname.replace(/\/$/, "/index")
+const currentPage = Astro.url.pathname
 
 function mdOrMdx(bool: boolean) {
   return bool ? ".mdx" : ".md"
