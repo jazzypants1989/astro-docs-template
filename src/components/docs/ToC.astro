@@ -56,12 +56,7 @@ const currentPage = Astro.url.pathname
 // Get the current page so we can determine if it's active in the sidebar.
 ---
 
-<style>
-  .active {
-    font-weight: bold;
-    font-decoration: underline;
-  }
-</style>
+<style></style>
 
 <h3 class="text-3xl font-bold">Table of Contents</h3>
 <ul>
@@ -90,6 +85,7 @@ const currentPage = Astro.url.pathname
       <ul>
         {docs.map((doc) => {
           if (doc.id.split("/")[0] === original) {
+            console.log({ currentPage, doc })
             return (
               <li>
                 <a
