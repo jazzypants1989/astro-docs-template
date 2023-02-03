@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Docs.astro';
+import HMR from '../../assets/HMR.mp4';
+import Edit from '../../components/edit/Edit.astro';
+---
+
+<Layout>
+	<h1 class="text-4xl font-bold text-center">The Docs!</h1>
+	<p class="text-center">This is the introduction page to the Docs!</p>
+	<div class="p-3 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM">
+		<h3 class="text-2xl font-bold text-center">
+			This will show up as "Introduction" on the Table of Contents to the left.
+		</h3>
+	</div>
+	<div
+		class="aspect-w-16 aspect-h-9 bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex items-center justify-center flex-col"
+	>
+		<iframe class="h-96" src="https://www.youtube.com/embed/1ReUKz10g50"> </iframe>
+		<span class="text-center text-sm">Type Safe Markdown rules</span>
+	</div>
+	<div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80">
+		<p class="p-2">This is the introduction to the docs.</p>
+		<p class="p-2">
+			On the left, you will see the table of contents. This is based on the contents of the
+			`content` folder. Each file is a page, and you can create sections by placing them in folders.
+		</p>
+	</div>
+	<Edit file="src/pages/docs/index.astro" />
+</Layout>

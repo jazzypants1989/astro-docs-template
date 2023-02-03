@@ -1,0 +1,38 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Headings from '../components/docs/Headings.astro';
+import Edit from '../components/edit/Edit.astro';
+
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title="QGP - Frequently Asked Questions" description="Frequently Asked Questions" />
+	</head>
+	<body class="bg-primary-DARK text-primary-LIGHT">
+		<Header title="QGP - Frequently Asked Questions" />
+
+		<main class="mx-auto max-w-3xl p-3 flex flex-col items-center justify-around">
+			<h1 class="text-4xl font-bold text-center">Frequently Asked Questions</h1>
+
+			<Headings />
+
+			<div class="p-3 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM text-primary-LIGHT">
+				<h2 id="is-this-a-question" class="text-2xl font-bold text-center">Is This a Question?</h2>
+			</div>
+			<div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80">
+				<h4 class="text-2xl font-bold text-center m-2">Yes It Is.</h4>
+				<p class="p-3">
+					This page is here to show you that the heading component works on any page with H2's and
+					ID's-- not just markdown.
+				</p>
+			</div>
+			<Edit />
+			<Footer />
+		</main>
+	</body>
+</html>

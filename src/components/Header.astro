@@ -1,0 +1,15 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import logo from '../assets/YOUR LOGO HERE.png';
+---
+
+<header
+	class="sticky top-0 left-0 z-50 flex items-center justify-center w-full h-8 px-4 py-2 text-primary-NOTSOLIGHT bg-primary-NOTSODARK shadow-lg rounded-b-lg opacity-80 hover:opacity-100 transition-opacity duration-1000 ease-in-out"
+>
+	<img src={logo} alt="Docs Logo" class="absolute top-0 left-0 w-10 h-10 rounded-full shadow-lg" />
+	<nav>
+		<HeaderLink href="/">Home</HeaderLink>
+		<HeaderLink href="/docs">Docs</HeaderLink>
+		<HeaderLink href="/faq">FAQ</HeaderLink>
+	</nav>
+</header>
