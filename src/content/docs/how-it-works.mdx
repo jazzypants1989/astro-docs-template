@@ -1,0 +1,89 @@
+---
+title: "How it Works"
+description: "An explanation of how to use this Docs Template."
+pubDate: "02/01/2023"
+updatedDate: "02/01/2023"
+mdx: true
+---
+
+## **The Content Folder**
+
+Everything is based around the content folder. This is where you will write your documentation. Inside, you will find a `config.ts` which contains the schema definition. Inside the `docs` folder, the root contains any extra important 'core docs' that you want to highlight. Other than that, you can organize your documents by folder name, and the folder will become a section name on the left.
+
+<br />
+
+## **Customization**
+
+The template is built to be fully customizable. You can change the colors, fonts, and more in the `tailwind.config.js` file. Every color you see here is a variable that you can easily change. You can change the logo in the `src/assets` folder, and the background/favicon in the `public` folder. There are a few additional CSS styles declared in the `src/styles/global.css` file, but you can change those as well. I put comments in the file to help you see which colors relate to the tailwind config.
+
+<br />
+
+## **File Structure**
+
+The file structure explains a lot about the project if you look at it and compare it to this page. Check it out. Pay attention to the content folder and the talbe of contents to my left.
+
+```bash
+├── public
+│   ├── logo.svg
+├── src
+│   ├── assets
+│   │   ├── github.svg
+│   │   ├── Twitter-logo.svg
+│   │   ├── YOUR LOGO HERE.svg
+│   ├── components
+│   │   ├── docs
+│   │   │   ├── Example.astro
+│   │   │   ├── Headings.astro
+│   │   │   ├── MobileMenu.astro
+│   │   │   ├── ToC.astro
+│   │   ├── edit
+│   │   │   ├── Edit.astro
+│   │   │   ├── edit.svg
+│   │   │   ├── pr.svg
+│   │   ├── Basehead.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── HeaderLink.astro
+│   │   ├── Infobox.astro
+│   ├── content
+│   │   ├── docs
+│   │   │   ├── a-section
+│   │   │   │   ├── mdx-file.mdx
+│   │   │   │   ├── normal-markdown.md
+│   │   │   ├── another-section
+│   │   │   │   ├── others.mdx
+│   │   │   ├── core-doc.mdx
+│   │   │   ├── how-it-works.mdx
+│   │   ├── config.ts
+│   ├── layouts
+│   │   ├── Docs.astro
+│   │   ├── Doc.astro
+│   ├── pages
+│   │   ├── docs
+│   │   │   ├── [...slug].astro
+│   │   │   ├── index.astro
+│   │   ├── 404.astro
+│   │   ├── faq.astro
+│   │   ├── index.astro
+│   ├── styles
+│   │   ├── global.css
+│   ├── consts.ts
+│   ├── env.d.ts
+├── .gitignore
+├── astro.config.mjs
+├── package.json
+├── README.md
+├── sandbox.config.json
+├── tailwind.config.js
+├── tsconfig.json
+```
+
+<br />
+
+## **The Pages**
+
+`index.astro` and `faq.astro` speak for themselves. `404.astro` is boring yet functional, feel free to do whatever you would like with that. The `docs` folder is where the magic happens. Everything in this folder is wrapped in the "docs" layout. The `index.astro` file is the home page for the docs and it is the "Introduction" that you see on the left. The `[...slug].astro` file is the page that renders the actual documentation. The file itself is pretty boring. If you want to mess with the layout of each page, you need to look at the `Doc.astro` file which is the layout for each page. So, each docs page is `Docs.astro` wrapping `Doc.astro` wrapping `[...slug].astro`.
+
+## **Anything else?**
+
+I put lots of comments around the template, so I hope that things are clear. If you have any questions, feel free to open an issue on the repo, or reach out to me on Twitter. I'm always happy to help! My links are in the footer, but here's my Twitter handle: [@JessePence5](https://twitter.com/JessePence5), and [here's the repo](https://github.com/jazzypants1989/astro-docs-template). The README has more information about the template, and how to use it.

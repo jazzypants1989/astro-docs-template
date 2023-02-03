@@ -1,0 +1,13 @@
+<button class="example p-4 m-3 bg-blue-700 text-white rounded-2xl"
+  >Click me! It's fun!</button
+>
+
+<script>
+  const button = document.querySelector(".example")
+  let count = 0
+
+  button!.addEventListener("click", () => {
+    count++
+    button!.innerHTML = `Count: ${count}`
+  })
+</script>

@@ -1,33 +1,68 @@
 ---
-title: 'This Is A Core Doc'
+title: "This Is A Core Doc"
 description: 'Use this for things like installation instructions and "Our Philosophy" pages.'
-pubDate: '02/01/2023'
-updatedDate: '02/01/2023'
+pubDate: "02/01/2023"
+updatedDate: "02/01/2023"
 mdx: true
 ---
 
-import Infobox from '../../components/Infobox.astro';
+import Infobox from "../../components/Infobox.astro"
+import Example from "../../components/docs/Example.astro"
 
-<Infobox hint={true}>You can bring in the Infobox component on any MDX doc page.</Infobox>
+## **Check it out...**
+
+## **Each one of these headings...**
+
+## **Is converted into a link**
+
+## **On the side-bar to the right!**
+
+## **All you have to do...**
+
+## **Is put two hashes..**
+
+## **To make a heading..**
+
+## **And, it will be converted...**
+
+## **into a link!**
+
+<Infobox hint={true}>
+  You can bring in the Infobox component on any MDX doc page.
+</Infobox>
+
+<div class="m-2 p-2 bg-pink-800 rounded-lg">
+  <p class="text-pink-200">
+    Or, you can use HTML tags if you need some more control. You can even style
+    it with Tailwind classes!
+  </p>
+</div>
+
+```js
+// You can also add code blocks
+// to your MDX docs!
+
+AstroRules() {
+  return `    <h1>🚀</h1>
+    <p>It automatically highlights your syntax!!!</p>
+   `
+}
+```
+
+This is just a taste of what you can do with MDX. You can add whole React components to your docs, and even use them to create interactive examples! This example is vanilla JS, but you can use React, Vue, Svelte, or any other framework you want.
+
+<Example />
 
 ## **BING**
 
-bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong
-bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing
-bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing
-bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong
-bing bing bong bing bing bong bing bing bong bing bing bong bing
+bing bong bing bing bong 
 
 <br />
 <br />
 
 ## **BONG**
 
-bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing
-bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing
-bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing
-bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing bing bong bing
-bing bong bing bing bong bing bing bong bing
+bing bong bing bing bong 
 
 <br />
 <br />

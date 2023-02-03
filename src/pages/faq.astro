@@ -1,38 +1,93 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Headings from '../components/docs/Headings.astro';
-import Edit from '../components/edit/Edit.astro';
+import BaseHead from "../components/BaseHead.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import Headings from "../components/docs/Headings.astro"
+import Edit from "../components/edit/Edit.astro"
 
-import '../styles/global.css';
+import "../styles/global.css"
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title="QGP - Frequently Asked Questions" description="Frequently Asked Questions" />
-	</head>
-	<body class="bg-primary-DARK text-primary-LIGHT">
-		<Header title="QGP - Frequently Asked Questions" />
+  <head>
+    <BaseHead
+      title="QGP - Frequently Asked Questions"
+      description="Frequently Asked Questions"
+    />
+  </head>
+  <body class="bg-primary-DARK text-primary-LIGHT">
+    <Header title="QGP - Frequently Asked Questions" />
 
-		<main class="mx-auto max-w-3xl p-3 flex flex-col items-center justify-around">
-			<h1 class="text-4xl font-bold text-center">Frequently Asked Questions</h1>
+    <main
+      class="mx-auto max-w-3xl p-3 flex flex-col items-center justify-around"
+    >
+      <h1 class="text-4xl font-bold text-center">Frequently Asked Questions</h1>
 
-			<Headings />
+      <Headings />
 
-			<div class="p-3 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM text-primary-LIGHT">
-				<h2 id="is-this-a-question" class="text-2xl font-bold text-center">Is This a Question?</h2>
-			</div>
-			<div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80">
-				<h4 class="text-2xl font-bold text-center m-2">Yes It Is.</h4>
-				<p class="p-3">
-					This page is here to show you that the heading component works on any page with H2's and
-					ID's-- not just markdown.
-				</p>
-			</div>
-			<Edit />
-			<Footer />
-		</main>
-	</body>
+      <div
+        class="p-3 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM text-primary-LIGHT"
+      >
+        <h2 id="what-is-this" class="text-2xl font-bold text-center">
+          What is this?
+        </h2>
+      </div>
+      <div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80">
+        <h4 class="text-2xl font-bold text-center m-2">
+          It's a template for making documentation!
+        </h4>
+        <p class="p-3">
+          <a href="https://Astro.build">Astro</a> is incredible. They just released
+          something called the <a
+            href="https://astro.build/blog/introducing-content-collections/"
+            >Content Collections API</a
+          > which makes it super easy to work with markdown files in a typesafe manner.
+          I found a way to make a table of contents for your documentation dynamically
+          based only on the file structure of the "content" folder. I also made a
+          component that will automatically generate a "On This Page" list of links
+          to each heading on the page-- I used it on this page above. Along with
+          a few reusable components for information and editing, I think this is
+          a pretty good starting place for a documentation site. The only other tools
+          used were Typescript and TailwindCSS.
+        </p>
+      </div>
+
+      <div
+        class="p-3 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM text-primary-LIGHT"
+      >
+        <h2 id="how-do-i-use-this" class="text-2xl font-bold text-center">
+          How Do I Use This?
+        </h2>
+      </div>
+      <div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80">
+        <h4 class="text-2xl font-bold text-center m-2">Just fork the repo!</h4>
+        <p class="p-3">
+          Go on over to the GitHub repo and read the README.md file. It's pretty
+          simple.
+          <a href="https://github.com/jazzypants1989/astro-docs-template"
+            >Here's the link!</a
+          >
+        </p>
+      </div>
+
+      <div
+        class="p-3 m-2 rounded-2xl bg-opacity-50 bg-primary-MEDIUM text-primary-LIGHT"
+      >
+        <h2 id="is-this-a-question" class="text-2xl font-bold text-center">
+          Are you Awesome?
+        </h2>
+      </div>
+      <div class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80">
+        <h4 class="text-2xl font-bold text-center m-2">Yes, I think so.</h4>
+        <p class="p-3">
+          You're pretty awesome in my book. This page is mostly here to show you
+          that the heading component works on any page with H2's and ID's-- not
+          just markdown.
+        </p>
+      </div>
+      <Edit file="src/pages/faq.astro" />
+      <Footer />
+    </main>
+  </body>
 </html>

@@ -1,80 +1,55 @@
-code {
-	font-family: 'Fira Code', monospace;
-	font-size: 1.1rem;
-	background-color: #1e1e1e;
-	color: #d4d4d4;
-}
-
-a {
-	color: #558b92; /* primary-MEDIUM */
-	cursor: pointer;
-	text-decoration: none;
-	display: inline-block;
-}
-
-a:hover {
-	color: #add2d7; /* primary-NOTSODARK */
-	background-color: #558b92; /* primary-MEDIUM */
-	border-radius: 0.5rem;
-	transition: all 0.5s ease-in-out;
-}
-
-footer > a:hover {
-	color: #add2d7; /* primary-NOTSODARK */
-	background-color: transparent;
-}
-
-details > a:hover {
-	color: #add2d7; /* primary-NOTSODARK */
-	background-color: transparent;
-}
-
 body {
-	background-image: url(/logo.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 66vw;
-	background-attachment: fixed;
+  background-image: url(/logo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 66vw;
+  background-attachment: fixed;
 }
 
 html {
-	scroll-behavior: smooth;
-	scroll-padding: 2rem;
+  scroll-behavior: smooth;
+  scroll-padding: 2rem;
+}
+
+code {
+  font-family: "Fira Code", monospace;
+  font-size: 1.1rem;
+  background-color: #1e1e1e; /* These aren't part of the style guide... */
+  color: #d4d4d4; /* They just look right for code blocks */
+}
+
+a {
+  color: #558b92; /* primary-MEDIUM */
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover {
+  color: #add2d7; /* primary-NOTSODARK */
+  background-color: #558b92; /* primary-MEDIUM */
+  border-radius: 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+footer > a:hover {
+  color: #add2d7; /* primary-NOTSODARK */
+  background-color: transparent;
+}
+
+details > a:hover {
+  color: #add2d7; /* primary-NOTSODARK */
+  background-color: transparent;
 }
 
 @media prefers-reduced-motion {
-	* {
-		animation: none !important;
-		transition: none !important;
-		scroll-behavior: auto !important;
-	}
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 *:not(:active):focus-visible {
-	@apply outline-offset-4;
-}
-
-.light {
-	background: #ddd;
-	transition: background 0.3s;
-}
-
-.dark {
-	background: #222;
-	color: #ddd;
-	transition: background 0.3s;
-}
-
-.dark h1,
-.dark h2,
-.dark h3 {
-	color: #fff;
-}
-
-.dark code {
-	background-color: #333;
-}
-
-.dark button {
-	background-color: #333;
+  @apply outline-offset-4;
 }
