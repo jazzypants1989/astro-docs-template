@@ -74,7 +74,10 @@ const isActive = (href: string) => {
 <ul>
   <li>
     <a
-      class={isActive("/docs") && currentPage === "/docs" ? "active" : ""}
+      class={(isActive("/docs") && currentPage === "/docs") ||
+      (isActive("/docs") && currentPage === "/docs/")
+        ? "active"
+        : ""}
       href="/docs">Introduction</a
     >
   </li>
