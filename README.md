@@ -28,9 +28,7 @@ Other than that, the main thing you'll want to change is the logo. The SVG logo 
 
 ## Known Issues
 
-- The mobile design is awful and breaks. It worked better two days ago before I shifted things around. Top concern.
-
-- The introduction page is not highlighted when active. No big whoop.
+- The mobile design is not great. I'm not a designer, but I have a few ideas.
 
 ## Credits
 
