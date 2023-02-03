@@ -85,7 +85,6 @@ const currentPage = Astro.url.pathname
       <ul>
         {docs.map((doc) => {
           if (doc.id.split("/")[0] === original) {
-            console.log({ currentPage, doc })
             return (
               <li>
                 <a
@@ -102,3 +101,7 @@ const currentPage = Astro.url.pathname
     </div>
   ))
 }
+<script>
+  console.log(Astro.url.pathname)
+  console.log(document.location.pathname)
+</script>
