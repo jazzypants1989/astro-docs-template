@@ -54,6 +54,18 @@ const coreDocs = docs.filter(
 const currentPage = Astro.url.pathname
 
 // Get the current page so we can determine if it's active in the sidebar.
+
+function removeTrailingSlash(path: string) {
+  return path.replace(/\/$/, "")
+}
+
+function inPathWithoutHome(path: string, href: string) {
+  return removeTrailingSlash(path).startsWith(href) && href !== "/"
+}
+
+const isActive = (href: string) => {
+  return inPathWithoutHome(currentPage, href) ? "active" : ""
+}
 ---
 
 <style></style>
@@ -88,7 +100,7 @@ const currentPage = Astro.url.pathname
             return (
               <li>
                 <a
-                  class={currentPage === `/docs/${doc.slug}` ? "active" : ""}
+                  class={isActive(`/docs/${doc.slug}`)}
                   href={`/docs/${doc.slug}`}
                 >
                   {doc.data.title}
@@ -101,7 +113,3 @@ const currentPage = Astro.url.pathname
     </div>
   ))
 }
-<script>
-  console.log(Astro.url.pathname)
-  console.log(document.location.pathname)
-</script>
