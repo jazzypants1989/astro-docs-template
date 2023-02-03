@@ -73,7 +73,7 @@ const isActive = (href: string) => {
 <h3 class="text-3xl font-bold">Table of Contents</h3>
 <ul>
   <li>
-    <a class={currentPage === "/docs" ? "active" : ""} href="/docs"
+    <a class={isActive("/docs") ? "active" : ""} href="/docs"
       >Introduction</a
     >
   </li>
