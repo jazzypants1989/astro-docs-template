@@ -81,7 +81,7 @@ const isActive = (href: string) => {
     coreDocs.map((doc) => (
       <li>
         <a
-          class={currentPage === `/docs/${doc.slug}` ? "active" : ""}
+          class={isActive(`/docs/${doc.slug}`) ? "active" : ""}
           href={`/docs/${doc.slug}`}
         >
           {doc.data.title}
