@@ -2,24 +2,41 @@
 import type { CollectionEntry } from "astro:content"
 import Edit from "../components/edit/Edit.astro"
 
-type Props = CollectionEntry<"docs">["data"]
+type Props = CollectionEntry<"docs">["data"] & { id: string }
 
-const { title, description, pubDate, updatedDate, image, video, mdx } =
+const { title, description, pubDate, updatedDate, image, video, id } =
   Astro.props as Props
 
 const currentPage = Astro.url.pathname
 
-function mdOrMdx(bool: boolean) {
-  return bool ? ".mdx" : ".md"
+function mdOrMdx(id: string) {
+  if (id.endsWith(".md")) {
+    return ".md"
+  } else if (id.endsWith(".mdx")) {
+    return ".mdx"
+  } else {
+    return ""
+  }
 }
-
 // We need to add the extension to the current page so that we can get the correct file path for the edit button
 // This is literally the entire reason for the mdx prop.
 // If we can find another way to see if the page is mdx or md, we can remove this prop
 
-const pageWithExtension = currentPage.slice(0, -1) + mdOrMdx(mdx!)
+const trailingSlashRemover = (currentPage: string) => {
+  if (currentPage.endsWith("/")) {
+    return currentPage.slice(0, -1)
+  } else {
+    return currentPage
+  }
+}
+
+const pageWithExtension = trailingSlashRemover(currentPage) + mdOrMdx(id)
 
 const contentPage = pageWithExtension.replace("/docs", "src/content/docs")
+
+console.log(contentPage)
+
+// We remove the trailing slash, add the .md or .mdx extension, and then correct the file path to the content folder
 ---
 
 <article

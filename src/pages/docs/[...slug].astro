@@ -1,27 +1,29 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
-import Layout from '../../layouts/Docs.astro';
-import DocLayout from '../../layouts/Doc.astro';
+import { CollectionEntry, getCollection } from "astro:content"
+import Layout from "../../layouts/Docs.astro"
+import DocLayout from "../../layouts/Doc.astro"
 
 export async function getStaticPaths() {
-	const docs = await getCollection('docs');
-	return docs.map((doc) => ({
-		params: { slug: doc.slug },
-		props: doc,
-	}));
+  const docs = await getCollection("docs")
+  return docs.map((doc) => ({
+    params: { slug: doc.slug },
+    props: doc,
+  }))
 }
 
-type Props = CollectionEntry<'docs'>;
+type Props = CollectionEntry<"docs">
 
-const doc = Astro.props;
+const doc = Astro.props
 
-const { data } = doc;
+const { data, id } = doc
 
-const { Content } = await doc.render();
+const idAndData = { id, ...data }
+
+const { Content } = await doc.render()
 ---
 
 <Layout>
-	<DocLayout {...data}>
-		<Content />
-	</DocLayout>
+  <DocLayout {...idAndData}>
+    <Content />
+  </DocLayout>
 </Layout>
