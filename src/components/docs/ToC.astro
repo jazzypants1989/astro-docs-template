@@ -151,13 +151,10 @@ const isActive = (href: string) => {
   async function search(query: string) {
     const res = await fetch("/search.json")
     const data = await res.json()
-
-    const results = data.filter((doc: { title: string; text: string }) => {
-      return (
-        doc.title.toLowerCase().includes(query.toLowerCase()) ||
-        doc.text.toLowerCase().includes(query.toLowerCase())
-      )
-    })
+    console.log(data)
+    const results = data.filter((result: { text: string }) =>
+      result.text.toLowerCase().includes(query.toLowerCase())
+    )
 
     function contextFinder(text: string, query: string) {
       const index = text.toLowerCase().indexOf(query.toLowerCase())
