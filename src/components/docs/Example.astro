@@ -6,8 +6,10 @@
   const button = document.querySelector(".example")
   let count = 0
 
-  button!.addEventListener("click", () => {
-    count++
-    button!.innerHTML = `Count: ${count}`
-  })
+  if (button !== null) {
+    button.addEventListener("click", () => {
+      count++
+      button!.innerHTML = `Count: ${count}`
+    })
+  }
 </script>
