@@ -149,7 +149,7 @@ const isActive = (href: string) => {
   }
 
   async function search(query: string) {
-    const res = await fetch("/search")
+    const res = await fetch("/search.json")
     const data = await res.json()
 
     const results = data.filter((doc: { title: string; text: string }) => {
