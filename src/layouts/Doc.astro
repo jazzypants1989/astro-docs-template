@@ -34,13 +34,11 @@ const pageWithExtension = trailingSlashRemover(currentPage) + mdOrMdx(id)
 
 const contentPage = pageWithExtension.replace("/docs", "src/content/docs")
 
-console.log(contentPage)
-
 // We remove the trailing slash, add the .md or .mdx extension, and then correct the file path to the content folder
 ---
 
 <article
-  class="max-w-2xl mx-auto p-4 space-y-4 flex flex-col items-center justify-center"
+  class="max-w-2xl mx-0 md:mx-auto p-4 space-y-4 flex flex-col items-center justify-center text-center"
 >
   <h1 class="text-4xl font-bold">{title}</h1>
   {
@@ -63,7 +61,7 @@ console.log(contentPage)
   <p>Published: {pubDate.toLocaleDateString()}</p>
   <p>Last Updated: {updatedDate?.toLocaleDateString()}</p>
   <div
-    class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex flex-col items-center justify-center"
+    class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex flex-col items-center justify-center space-y-2 md:space-y-4 text-start"
   >
     <slot />
   </div>

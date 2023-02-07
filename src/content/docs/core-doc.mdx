@@ -8,6 +8,7 @@ mdx: true
 
 import Infobox from "../../components/Infobox.astro"
 import Example from "../../components/docs/Example.astro"
+import CodeBlock from "../../components/docs/CodeBlock.astro"
 
 ## **Check it out...**
 
@@ -40,16 +41,69 @@ Check out [the "How It Works" page](/docs/how-it-works) if you want to learn mor
   </p>
 </div>
 
+<div class="max-w-xs md:max-w-sm lg:max-w-md 2xl:max-w-2xl">
+  
 ```js
 // You can also add code blocks
 // to your MDX docs!
 
-AstroRules() {
-  return `    <h1>🚀</h1>
-    <p>It automatically highlights your syntax!!!</p>
-   `
+function AstroRules() {
+return (
+
+  <h1>🚀</h1>
+  <p>This is great! 
+  <p>Unfortunately, this conflicts with Tailwind slightly</p>
+  <p>So, just wrap each code block in a div with a few Tailwind classes:</p>
+  <ul>
+    <li>max-w-xs</li>
+    <li>md:max-w-sm</li>
+    <li>lg:max-w-md</li>
+    <li>2xl:max-w-xl</li>
+  </ul>
+
+);
+}
+
+````
+
+</div>
+
+## **How to make a reusable code component**
+
+If remembering which classes to use sounds annoying, you can just create a reusable component to do it for you. Here's an example of how to do that with a few extra Tailwind classes to make it worth our while:
+
+<div class="max-w-xs md:max-w- lg:max-w-md 2xl:max-w-2xl">
+```js
+// src/components/docs/CodeBlock.astro
+
+<div class="max-w-xs md:max-w-sm lg:max-w-md 2xl:max-w-2xl border-2 border-primary-NOTSODARK
+rounded-2xl shadow-lg shadow-primary-DARK overflow-hidden"
+>
+  <slot />
+</div>
+````
+
+</div>
+
+Ta-da! Now, you can use this component in your MDX docs like this:
+
+<CodeBlock>
+````js
+<CodeBlock>
+```js
+function easyDocs(framework, markup, style) {
+  if (framework === "Astro" && markup === "MDX" && style === "Tailwind") {
+    return "Super easy documentation!";
+  } else {
+    return "You're making this too hard.";
+  }
 }
 ```
+</CodeBlock>
+````
+</CodeBlock>
+
+## **Interactive Examples**
 
 This is just a taste of what you can do with MDX. You can add whole React components to your docs, and even use them to create interactive examples! This example is vanilla JS, but you can use React, Vue, Svelte, or any other framework you want.
 
@@ -57,17 +111,11 @@ This is just a taste of what you can do with MDX. You can add whole React compon
 
 ## **BING**
 
-bing bong bing bing bong 
-
-<br />
-<br />
+bing bong bing bing bong
 
 ## **BONG**
 
-bing bong bing bing bong 
-
-<br />
-<br />
+bing bong bing bing bong
 
 ## **BANG**
 

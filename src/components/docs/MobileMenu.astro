@@ -8,12 +8,20 @@ import ToC from "./ToC.astro"
   const mobileMenuButton = document.querySelector(".mobile-menu-button")!
   function toggleMobileMenu() {
     mobileMenu.classList.toggle("hidden")
+    if (mobileMenu.classList.contains("hidden")) {
+      mobileMenuButton.classList.remove("opacity-100")
+      mobileMenuButton.classList.add("opacity-20")
+    } else {
+      mobileMenuButton.classList.remove("opacity-20")
+      mobileMenuButton.classList.add("opacity-100")
+      window.scrollTo(0, 0)
+    }
   }
   mobileMenuButton.addEventListener("click", toggleMobileMenu)
 </script>
 
 <button
-  class="mobile-menu-button fixed top-10 right-0 z-50 md:hidden"
+  class="mobile-menu-button fixed top-0 right-0 z-50 opacity-20 md:hidden"
   aria-label="Toggle mobile menu"
 >
   <svg
@@ -33,10 +41,11 @@ import ToC from "./ToC.astro"
     <line x1="12" y1="30" x2="36" y2="30"></line>
   </svg>
 </button>
-<div class="mobile-menu fixed hidden z-20 bg-primary-NOTSODARK">
-  <ToC />
-
-  <div class="fixed left-64 top-8 w-fit bg-primary-NOTSODARK">
+<div
+  class="mobile-menu absolute hidden z-20 bg-primary-NOTSODARK p-4 rounded-b-2xl md:hidden max-h-fit w-full left-0 text-xl"
+>
+  <nav class="sticky flex items-center justify-center flex-col text-center">
+    <ToC />
     <Headings />
-  </div>
+  </nav>
 </div>
