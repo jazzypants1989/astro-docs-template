@@ -1,6 +1,7 @@
 ---
 import Headings from "./Headings.astro"
 import ToC from "./ToC.astro"
+import Search from "./Search.astro"
 ---
 
 <script>
@@ -45,6 +46,7 @@ import ToC from "./ToC.astro"
   class="mobile-menu absolute hidden z-20 bg-primary-NOTSODARK p-4 rounded-b-2xl md:hidden max-h-fit w-full left-0 text-xl"
 >
   <nav class="sticky flex items-center justify-center flex-col text-center">
+    <Search searchID="mobile" resultsID="mobile" />
     <ToC />
     <Headings />
   </nav>

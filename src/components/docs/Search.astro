@@ -1,0 +1,165 @@
+---
+export interface Props {
+  searchID: string
+  resultsID: string
+}
+
+const { searchID, resultsID } = Astro.props as Props
+---
+
+<search-element
+  class="z-50 w-2/3"
+  data-search={searchID}
+  data-results={resultsID}
+>
+  <input
+    type="text"
+    placeholder="Search"
+    class="text-black w-full rounded-md border border-primary-DARKER"
+  />
+  <ul class="bg-primary-MEDIUM text-primary-LIGHT mt-2 rounded-lg w-full"></ul>
+</search-element>
+<script>
+  class SearchElement extends HTMLElement {
+    constructor() {
+      super()
+
+      const dataSearch = this.dataset.search // This was originally my plan to get the ID's from the props and it works fine
+      const dataResults = this.dataset.results // But, I realized web components are automatically scoped, so I don't need to do this
+
+      // Who would have guessed?
+      // Web components are actually kinda cool.
+      // Don't tell anyone I said that.
+
+      const searchInput = this.querySelector("input")
+      const resultsArea = this.querySelector("ul")
+
+      const urlParams = new URLSearchParams(
+        window.location.search
+      ) as URLSearchParams
+
+      if (searchInput === null || resultsArea === null) {
+        return
+      }
+
+      const searchParam = urlParams.get("search")
+
+      if (searchParam !== null) {
+        searchInput.value = searchParam
+        search(searchParam)
+      }
+
+      async function search(query: string) {
+        const res = await fetch("/search.json")
+        const data = await res.json()
+        console.log(data)
+        const results = data.filter((result: { text: string }) =>
+          result.text.toLowerCase().includes(query.toLowerCase())
+        )
+
+        function contextFinder(text: string, query: string) {
+          const index = text.toLowerCase().indexOf(query.toLowerCase())
+          const start = index - 20
+          const end = index + 50
+          const context = text.slice(start, end)
+          return context
+        }
+
+        if (searchInput === null || resultsArea === null) {
+          return
+        }
+
+        resultsArea.innerHTML = ""
+
+        if (results.length > 0) {
+          let id = 0
+          results.forEach(
+            (result: { title: string; text: string; url: string }) => {
+              id++
+              const context = contextFinder(result.text, query)
+              resultsArea.innerHTML += `
+            <li
+              class="border-b border-primary-DARKER"
+            >
+              <a 
+              class="block p-4 text-white"
+              id="result-${id}"
+              href="${result.url}">
+                <h3
+                class="text-xl font-bold"
+                >${result.title}</h3>
+                <p
+                class="text-sm font-light truncate"
+                >${context}</p>
+              </a>
+            </li>
+          `
+            }
+          )
+        } else {
+          resultsArea.innerHTML = `
+          <li>
+            <p>No results found.</p>
+          </li>
+        `
+        }
+
+        console.log(results)
+
+        return results
+      }
+      function throttleAndDebounce(fn: Function, delay: number) {
+        let timerId: any
+
+        return function (...args: any[]) {
+          if (timerId) {
+            console.log("throttled")
+            resultsArea!.innerHTML = `
+            <li>
+              <p>Searching...</p>
+            </li>
+          `
+            console.log(timerId)
+            clearTimeout(timerId)
+          }
+
+          timerId = setTimeout(() => {
+            console.log("debounced")
+            fn(...args)
+            timerId = null
+          }, delay)
+        }
+      }
+
+      const throttledSearch = throttleAndDebounce(search, 500)
+
+      function handleInput(e: Event) {
+        const query = (e.target as HTMLInputElement).value
+        if (resultsArea === null) {
+          return
+        }
+        if (query.length < 3) {
+          resultsArea.innerHTML = ""
+        }
+        if (query.length > 2) {
+          throttledSearch(query)
+        }
+        setTimeout(() => {
+          if (query.length > 2) {
+            resultsArea.innerHTML = `
+            <li>
+              <p>Searching...</p>
+            </li>
+          `
+          } else {
+            resultsArea.innerHTML = ""
+          }
+        }, 501)
+      }
+
+      searchInput.addEventListener("input", handleInput)
+    }
+  }
+
+  customElements.define("search-element", SearchElement)
+</script>
