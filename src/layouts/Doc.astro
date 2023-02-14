@@ -18,9 +18,6 @@ function mdOrMdx(id: string) {
     return ""
   }
 }
-// We need to add the extension to the current page so that we can get the correct file path for the edit button
-// This is literally the entire reason for the mdx prop.
-// If we can find another way to see if the page is mdx or md, we can remove this prop
 
 const trailingSlashRemover = (currentPage: string) => {
   if (currentPage.endsWith("/")) {
