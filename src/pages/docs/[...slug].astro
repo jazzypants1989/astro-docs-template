@@ -1,5 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content"
+import BaseHead from "../../components/BaseHead.astro"
 import Layout from "../../layouts/Docs.astro"
 import DocLayout from "../../layouts/Doc.astro"
 
@@ -19,9 +20,12 @@ const { data, id } = doc
 
 const idAndData = { id, ...data }
 
+const image = data.image || "/logo.svg"
+
 const { Content } = await doc.render()
 ---
 
+<BaseHead title={data.title} description={data.description} image={image} />
 <Layout>
   <DocLayout {...idAndData}>
     <Content />

@@ -10,7 +10,7 @@ const { warning, hint } = Astro.props;
 {
 	warning ? (
 		<div
-			class="bg-red-100 bg-opacity-80 border border-red-400 text-red-700 px-4 py-3 rounded-xl relative infobox"
+			class="bg-red-100 bg-opacity-80 border border-red-400 text-red-800 px-4 py-3 rounded-xl relative infobox"
 			role="alert"
 		>
 			<strong class="font-bold">Warning!</strong>
@@ -50,7 +50,7 @@ const { warning, hint } = Astro.props;
 {
 	!warning && !hint ? (
 		<div
-			class="bg-yellow-100 bg-opacity-80 border border-yellow-400 text-yellow-700 px-4 py-3 rounded-xl relative infobox"
+			class="bg-yellow-100 bg-opacity-80 border border-yellow-400 text-yellow-800 px-4 py-3 rounded-xl relative infobox"
 			role="alert"
 		>
 			<strong class="font-bold">Note:</strong>

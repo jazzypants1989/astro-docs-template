@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css"
 import Header from "../components/Header.astro"
-import BaseHead from "../components/BaseHead.astro"
 import ToC from "../components/docs/ToC.astro"
 import Headings from "../components/docs/Headings.astro"
 import MobileMenu from "../components/docs/MobileMenu.astro"
@@ -9,9 +8,8 @@ import Footer from "../components/Footer.astro"
 ---
 
 <html>
-  <BaseHead title="Docs" description="Astro documentation template" />
   <body
-    class="bg-primary-DARK text-primary-LIGHT flex min-h-screen flex-col items-center transition-colors duration-300"
+    class="flex min-h-screen flex-col items-center bg-primary-DARK text-primary-LIGHT transition-colors duration-300"
   >
     <Header />
 
@@ -20,7 +18,7 @@ import Footer from "../components/Footer.astro"
     >
       <nav
         title="Site Navigation"
-        class="sticky top-20 col-span-1 hidden h-auto max-h-[calc(100vh-80px)] w-fit flex-col justify-start overflow-y-auto bg-default pt-4 transition-colors duration-300 md:top-24 md:flex"
+        class="bg-default sticky top-20 col-span-1 hidden h-auto max-h-[calc(100vh-80px)] w-fit flex-col justify-start overflow-y-auto pt-4 transition-colors duration-300 md:top-24 md:flex"
       >
         <ToC />
       </nav>

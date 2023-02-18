@@ -35,7 +35,7 @@ import Search from "./Search.astro"
     stroke-width="4"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="text-primary-NOTSOLIGHT hover:text-primary-MEDIUM transition-colors duration-500 ease-in-out"
+    class="text-primary-NOTSOLIGHT transition-colors duration-500 ease-in-out hover:text-primary-MEDIUM"
   >
     <line x1="12" y1="18" x2="36" y2="18"></line>
     <line x1="12" y1="6" x2="36" y2="6"></line>
@@ -43,9 +43,9 @@ import Search from "./Search.astro"
   </svg>
 </button>
 <div
-  class="mobile-menu absolute hidden z-20 bg-primary-NOTSODARK p-4 rounded-b-2xl md:hidden max-h-fit w-full left-0 text-xl"
+  class="mobile-menu absolute left-0 z-20 hidden max-h-fit w-full rounded-b-2xl bg-primary-NOTSODARK p-4 text-xl md:hidden"
 >
-  <nav class="sticky flex items-center justify-center flex-col text-center">
+  <nav class="sticky flex flex-col items-center justify-center text-center">
     <Search searchID="mobile" resultsID="mobile" />
     <ToC />
     <Headings />
