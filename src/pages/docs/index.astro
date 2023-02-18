@@ -1,27 +1,32 @@
 ---
 import Layout from "../../layouts/Docs.astro"
 import Edit from "../../components/edit/Edit.astro"
+import BaseHead from "../../components/BaseHead.astro"
 ---
 
+<BaseHead
+  title="Introduction"
+  description="This is the introduction page to the Docs!"
+/>
 <Layout>
-  <h1 class="text-4xl font-bold text-center">The Docs!</h1>
+  <h1 class="text-center text-4xl font-bold">The Docs!</h1>
   <p class="text-center">This is the introduction page to the Docs!</p>
   <div
-    class="p-3 m-2 w-11/12 lg:w-full rounded-2xl bg-opacity-50 bg-primary-MEDIUM"
+    class="m-2 w-11/12 rounded-2xl bg-primary-MEDIUM bg-opacity-50 p-3 lg:w-full"
   >
-    <h3 class="text-2xl font-bold text-center">
+    <h3 class="text-center text-2xl font-bold">
       This will show up as "Introduction" on the Table of Contents to the left.
     </h3>
   </div>
   <div
-    class="aspect-w-16 aspect-h-9 w-11/12 lg:w-full bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex items-center justify-center flex-col"
+    class="aspect-w-16 aspect-h-9 m-2 flex w-11/12 flex-col items-center justify-center rounded-2xl bg-primary-NOTSODARK bg-opacity-80 p-3 lg:w-full"
   >
     <iframe class="h-96" src="https://www.youtube.com/embed/1ReUKz10g50">
     </iframe>
     <span class="text-center text-sm">Type Safe Markdown rules</span>
   </div>
   <div
-    class="bg-primary-NOTSODARK w-11/12 lg:w-full p-3 m-2 rounded-2xl bg-opacity-80"
+    class="m-2 w-11/12 rounded-2xl bg-primary-NOTSODARK bg-opacity-80 p-3 lg:w-full"
   >
     <p class="p-2">This is the introduction to the docs.</p>
     <p class="p-2">
