@@ -4,6 +4,8 @@ This is a template that leverages the Content Collections API to automatically c
 
 This allows for a classic recognizable layout with an overall table of contents on the left side, and a table of contents for just what's on each page on the right side-- with no extra work on your part! Just write the markdown files and put them in folders and the template will do the rest.
 
+Most recently, I added very basic search functionality and automatic OG cards for each docs page. Next up, theme selection and perhaps a CLI for setting up the Tailwind config.
+
 ## How to Use This Template
 
 1.) Download or clone the repo into the folder of your choice.
