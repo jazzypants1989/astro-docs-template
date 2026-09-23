@@ -2,36 +2,13 @@
 import type { CollectionEntry } from "astro:content"
 import Edit from "../components/edit/Edit.astro"
 
-type Props = CollectionEntry<"docs">["data"] & { id: string }
+type Props = CollectionEntry<"docs">["data"] & { filePath?: string }
 
-const { title, description, pubDate, updatedDate, image, video, id } =
-  Astro.props as Props
+const { title, description, pubDate, updatedDate, image, video, filePath } =
+  Astro.props
 
-const currentPage = Astro.url.pathname
-
-function mdOrMdx(id: string) {
-  if (id.endsWith(".md")) {
-    return ".md"
-  } else if (id.endsWith(".mdx")) {
-    return ".mdx"
-  } else {
-    return ""
-  }
-}
-
-const trailingSlashRemover = (currentPage: string) => {
-  if (currentPage.endsWith("/")) {
-    return currentPage.slice(0, -1)
-  } else {
-    return currentPage
-  }
-}
-
-const pageWithExtension = trailingSlashRemover(currentPage) + mdOrMdx(id)
-
-const contentPage = pageWithExtension.replace("/docs", "src/content/docs")
-
-// We remove the trailing slash, add the .md or .mdx extension, and then correct the file path to the content folder
+// filePath is the path to the source file, relative to the project root
+// (e.g. "src/content/docs/a-section/mdx-file.mdx"), which is what the edit links need
 ---
 
 <article
@@ -58,9 +35,9 @@ const contentPage = pageWithExtension.replace("/docs", "src/content/docs")
   <p>Published: {pubDate.toLocaleDateString()}</p>
   <p>Last Updated: {updatedDate?.toLocaleDateString()}</p>
   <div
-    class="bg-primary-NOTSODARK p-3 m-2 rounded-2xl bg-opacity-80 flex flex-col items-center justify-center space-y-2 md:space-y-4 text-start"
+    class="bg-primary-NOTSODARK/80 p-3 m-2 rounded-2xl flex flex-col items-center justify-center space-y-2 md:space-y-4 text-start"
   >
     <slot />
   </div>
-  <Edit file={`${contentPage}`} />
+  <Edit file={filePath} />
 </article>

@@ -1,55 +1,80 @@
-body {
-  width: 100vw;
-  overflow-x: hidden;
-  background-image: url(/logo.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 66vw;
-  background-attachment: fixed;
+@import "tailwindcss";
+
+@theme {
+  --color-primary-DARK: #111b1d;
+  --color-primary-NOTSODARK: #1d2f32;
+  --color-primary-MEDIUM: #558b92;
+  --color-primary-NOTSOLIGHT: #add2d7;
+  --color-primary-LIGHT: #d7e8ea;
+
+  --color-secondary-DARK: #1e0c0c;
+  --color-secondary-NOTSODARK: #3e1e1e;
+  --color-secondary-MEDIUM: #ff3f34;
+  --color-secondary-NOTSOLIGHT: #f9e5e5;
+  --color-secondary-LIGHT: #fce3e3;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding: 2rem;
-}
-
-a {
-  color: #558b92; /* primary-MEDIUM */
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover {
-  color: #add2d7; /* primary-NOTSODARK */
-  background-color: #558b92; /* primary-MEDIUM */
-  border-radius: 0.5rem;
-  transition: all 0.5s ease-in-out;
-}
-
-footer > a:hover {
-  color: #add2d7; /* primary-NOTSODARK */
-  background-color: transparent;
-}
-
-details > a:hover {
-  color: #add2d7; /* primary-NOTSODARK */
-  background-color: transparent;
-}
-
-.active {
-  font-weight: bolder;
-  text-decoration: underline;
-}
-
-@media prefers-reduced-motion {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
+/* These live in the base layer so that Tailwind utility classes can still override them */
+@layer base {
+  body {
+    width: 100vw;
+    overflow-x: hidden;
+    background-image: url(/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 66vw;
+    background-attachment: fixed;
   }
-}
 
-*:not(:active):focus-visible {
-  @apply outline-offset-4;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding: 2rem;
+  }
+
+  a {
+    color: #558b92; /* primary-MEDIUM */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  a:hover {
+    color: #add2d7; /* primary-NOTSODARK */
+    background-color: #558b92; /* primary-MEDIUM */
+    border-radius: 0.5rem;
+    transition: all 0.5s ease-in-out;
+  }
+
+  footer > a:hover {
+    color: #add2d7; /* primary-NOTSODARK */
+    background-color: transparent;
+  }
+
+  details > a:hover {
+    color: #add2d7; /* primary-NOTSODARK */
+    background-color: transparent;
+  }
+
+  .active {
+    font-weight: bolder;
+    text-decoration: underline;
+  }
+
+  @media prefers-reduced-motion {
+    * {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  *:not(:active):focus-visible {
+    @apply outline-offset-4;
+  }
+
+  /* Tailwind v4 no longer sets a pointer cursor on buttons, so restore the v3 behavior */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }

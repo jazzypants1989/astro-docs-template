@@ -1,13 +1,12 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content"
-import BaseHead from "../../components/BaseHead.astro"
+import { type CollectionEntry, getCollection, render } from "astro:content"
 import Layout from "../../layouts/Docs.astro"
 import DocLayout from "../../layouts/Doc.astro"
 
 export async function getStaticPaths() {
   const docs = await getCollection("docs")
   return docs.map((doc) => ({
-    params: { slug: doc.slug },
+    params: { slug: doc.id },
     props: doc,
   }))
 }
@@ -16,18 +15,15 @@ type Props = CollectionEntry<"docs">
 
 const doc = Astro.props
 
-const { data, id } = doc
-
-const idAndData = { id, ...data }
+const { data, filePath } = doc
 
 const image = data.image || "/logo.svg"
 
-const { Content } = await doc.render()
+const { Content } = await render(doc)
 ---
 
-<BaseHead title={data.title} description={data.description} image={image} />
-<Layout>
-  <DocLayout {...idAndData}>
+<Layout title={data.title} description={data.description} image={image}>
+  <DocLayout {...data} filePath={filePath}>
     <Content />
   </DocLayout>
 </Layout>

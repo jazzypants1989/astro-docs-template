@@ -16,16 +16,16 @@ const { file } = Astro.props as Props
 <details>
   <summary>Help us improve this page</summary>
   <a href={`${githubURL}${file}`}
-    ><img width="30" alt="Open in Github" src={github} /></a
+    ><img width="30" alt="Open in Github" src={github.src} /></a
   >
   {
     file && (
       <a href={`${githubURL}${file}`}>
-        <img alt="Edit in Web Publisher" src={edit} />
+        <img alt="Edit in Web Publisher" src={edit.src} />
       </a>
     )
   }
-  <a href={codeFlowURL}><img alt="Open in Codeflow" src={pr} /></a>
+  <a href={codeFlowURL}><img alt="Open in Codeflow" src={pr.src} /></a>
 </details>
 
 <style>

@@ -1,13 +1,26 @@
 ---
 import "../styles/global.css"
+import BaseHead from "../components/BaseHead.astro"
 import Header from "../components/Header.astro"
 import ToC from "../components/docs/ToC.astro"
 import Headings from "../components/docs/Headings.astro"
 import MobileMenu from "../components/docs/MobileMenu.astro"
 import Footer from "../components/Footer.astro"
+
+type Props = {
+  title: string
+  description: string
+  image?: string
+}
+
+const { title, description, image } = Astro.props
 ---
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+  </head>
   <body
     class="flex min-h-screen flex-col items-center bg-primary-DARK text-primary-LIGHT transition-colors duration-300"
   >

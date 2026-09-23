@@ -6,20 +6,24 @@ import BaseHead from '../components/BaseHead.astro';
 import '../styles/global.css';
 ---
 
-<html class="bg-primary-NOTSODARK text-primary-NOTSOLIGHT font-sans antialiased">
-	<BaseHead title={'404'} description="Page not found" />
-
-	<Header />
-	<main class="flex flex-col items-center justify-center text-center min-h-screen">
-		<h1 class="text-9xl font-bold">404</h1>
-		<p class="text-2xl font-bold">Page not found</p>
-		<a class="text-blue-500" href="/">Go back home</a>
-	</main>
-	<Footer />
-	<style>
-		main {
-			height: 66vh;
-			width: 100%;
-		}
-	</style>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={'404'} description="Page not found" />
+	</head>
+	<body class="bg-primary-NOTSODARK text-primary-NOTSOLIGHT font-sans antialiased">
+		<Header />
+		<main class="flex flex-col items-center justify-center text-center min-h-screen">
+			<h1 class="text-9xl font-bold">404</h1>
+			<p class="text-2xl font-bold">Page not found</p>
+			<a class="text-blue-500" href="/">Go back home</a>
+		</main>
+		<Footer />
+		<style>
+			main {
+				height: 66vh;
+				width: 100%;
+			}
+		</style>
+	</body>
 </html>

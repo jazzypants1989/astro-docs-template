@@ -9,8 +9,8 @@ const docFolders = docs.map((doc) => {
   }
 })
 
-// Iterate through the documents and determine the folders based on the amount of slashes in each id.
-// More than one slash means that the first part of the path is a folder name.
+// Iterate through the documents and determine the folders based on the slashes in each id.
+// A slash means that the first part of the path is a folder name.
 // So, we return the first part of each path that has multiples slashes to get all of our folder names to use as categories.
 // This will only work one level deep, but that's fine for now.
 
@@ -42,14 +42,10 @@ function transformSnakeCase(str: string | undefined) {
 // Create an object with the original folder name and the transformed folder name.
 // We kept the original so we can compare it to the links in the sidebar (to determine if one of it's children is active.)
 
-const coreDocs = docs.filter(
-  (doc) =>
-    doc.id.split("/")[0].includes(".md") ||
-    doc.id.split("/")[0].includes(".mdx")
-)
+const coreDocs = docs.filter((doc) => !doc.id.includes("/"))
 
 // Filter out the core docs from the sidebar.
-// Basically, if it's in the root folder and it's a markdown file (not a folder), it must be a core doc.
+// Basically, if its id has no slash, it lives in the root folder (not a subfolder), so it must be a core doc.
 
 const currentPage = Astro.url.pathname
 
@@ -83,8 +79,8 @@ const isActive = (href: string) => {
     coreDocs.map((doc) => (
       <li>
         <a
-          class={isActive(`/docs/${doc.slug}`) ? "active" : ""}
-          href={`/docs/${doc.slug}`}
+          class={isActive(`/docs/${doc.id}`) ? "active" : ""}
+          href={`/docs/${doc.id}`}
         >
           {doc.data.title}
         </a>
@@ -102,8 +98,8 @@ const isActive = (href: string) => {
             return (
               <li>
                 <a
-                  class={isActive(`/docs/${doc.slug}`)}
-                  href={`/docs/${doc.slug}`}
+                  class={isActive(`/docs/${doc.id}`)}
+                  href={`/docs/${doc.id}`}
                 >
                   {doc.data.title}
                 </a>

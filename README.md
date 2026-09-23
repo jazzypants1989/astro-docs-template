@@ -10,7 +10,7 @@ Most recently, I added very basic search functionality and automatic OG cards fo
 
 1.) Download or clone the repo into the folder of your choice.
 
-2.) Run `npm install` / `yarn install` / `pnpm install` to install dependencies.
+2.) Run `npm install` / `yarn install` / `pnpm install` to install dependencies. (Astro 7 requires Node.js 22.12 or newer.)
 
 3.) Run `npm run dev` / `yarn dev` / `pnpm dev` to start the dev server.
 
@@ -20,7 +20,7 @@ Most recently, I added very basic search functionality and automatic OG cards fo
 
 ## How to Customize This Template
 
-This template is built with TailwindCSS. All of the colors used in the template are clearly defined in the `tailwind.config.js` file. I only used 3 or 4 colors, but I set up the config file to allow for more if you want to customize it further. You can also change the fonts in the `tailwind.config.js` file. There are a few additional styles in the `src/styles/global.css` file. I added some comments so you can see which colors correspond to the TailwindCSS variables.
+This template is built with TailwindCSS. All of the colors used in the template are clearly defined in the `@theme` block at the top of the `src/styles/global.css` file. I only used 3 or 4 colors, but I set up the theme to allow for more if you want to customize it further. You can also change the fonts in that `@theme` block. There are a few additional styles further down in the same file. I added some comments so you can see which colors correspond to the TailwindCSS variables.
 
 Other than that, the main thing you'll want to change is the logo. The SVG logo is in the `public` folder. This is used for the favicon and the background. The PNG logo is in the `src/assets` folder. This is used for the logo in the header and on the landing page. You can replace these with your own logo or a picture of my face. I don't care.
 

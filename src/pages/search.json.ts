@@ -14,13 +14,13 @@ const convertMarkdownToText = (str: string) => {
 const docSearchObjects = docs.map((doc) => {
   return {
     title: doc.data.title,
-    text: convertMarkdownToText(removeHTMLTags(doc.body)),
-    url: `/docs/${doc.slug}`,
+    text: convertMarkdownToText(removeHTMLTags(doc.body ?? "")),
+    url: `/docs/${doc.id}`,
   }
 })
 
-export const get: APIRoute = async function get({ request, params }) {
-  return {
-    body: JSON.stringify(docSearchObjects),
-  }
+export const GET: APIRoute = () => {
+  return new Response(JSON.stringify(docSearchObjects), {
+    headers: { "Content-Type": "application/json" },
+  })
 }

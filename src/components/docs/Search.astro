@@ -15,7 +15,7 @@ const { searchID, resultsID } = Astro.props as Props
   <input
     type="text"
     placeholder="Search"
-    class="text-black w-full rounded-md border border-primary-DARKER"
+    class="text-black bg-white w-full rounded-md border border-gray-200"
   />
   <ul class="bg-primary-MEDIUM text-primary-LIGHT mt-2 rounded-lg w-full"></ul>
 </search-element>
@@ -81,7 +81,7 @@ const { searchID, resultsID } = Astro.props as Props
               const context = contextFinder(result.text, query)
               resultsArea.innerHTML += `
             <li
-              class="border-b border-primary-DARKER"
+              class="border-b border-gray-200"
             >
               <a 
               class="block p-4 text-white"

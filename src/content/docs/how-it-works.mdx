@@ -8,13 +8,13 @@ mdx: true
 
 ## **The Content Folder**
 
-Everything is based around the content folder. This is where you will write your documentation. Inside, you will find a `config.ts` which contains the schema definition. Inside the `docs` folder, the root contains any extra important 'core docs' that you want to highlight. Other than that, you can organize your documents by folder name, and the folder will become a section name on the left.
+Everything is based around the content folder. This is where you will write your documentation. The schema definition lives next to it in `src/content.config.ts`. Inside the `docs` folder, the root contains any extra important 'core docs' that you want to highlight. Other than that, you can organize your documents by folder name, and the folder will become a section name on the left.
 
 <br />
 
 ## **Customization**
 
-The template is built to be fully customizable. You can change the colors, fonts, and more in the `tailwind.config.js` file. Every color you see here is a variable that you can easily change. You can change the logo in the `src/assets` folder, and the background/favicon in the `public` folder. There are a few additional CSS styles declared in the `src/styles/global.css` file, but you can change those as well. I put comments in the file to help you see which colors relate to the tailwind config.
+The template is built to be fully customizable. You can change the colors, fonts, and more in the `@theme` block at the top of the `src/styles/global.css` file. Every color you see here is a variable that you can easily change. You can change the logo in the `src/assets` folder, and the background/favicon in the `public` folder. There are a few additional CSS styles declared in the `src/styles/global.css` file, but you can change those as well. I put comments in the file to help you see which colors relate to the Tailwind theme.
 
 <br />
 
@@ -54,7 +54,6 @@ The file structure explains a lot about the project if you look at it and compar
 │   │   │   │   ├── others.mdx
 │   │   │   ├── core-doc.mdx
 │   │   │   ├── how-it-works.mdx
-│   │   ├── config.ts
 │   ├── layouts
 │   │   ├── Docs.astro
 │   │   ├── Doc.astro
@@ -68,13 +67,12 @@ The file structure explains a lot about the project if you look at it and compar
 │   ├── styles
 │   │   ├── global.css
 │   ├── consts.ts
-│   ├── env.d.ts
+│   ├── content.config.ts
 ├── .gitignore
 ├── astro.config.mjs
 ├── package.json
 ├── README.md
 ├── sandbox.config.json
-├── tailwind.config.js
 ├── tsconfig.json
 ```
 
