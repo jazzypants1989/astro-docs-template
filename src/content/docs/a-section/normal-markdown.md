@@ -1,9 +1,8 @@
 ---
 title: "Normal Markdown"
-description: "You can use both .md and .mdx files, but the edit component won't work correctly unless you specify the boolean in the frontmatter."
+description: "You can use both .md and .mdx files. Use plain Markdown when you don't need to import components."
 pubDate: "02/01/2023"
 updatedDate: "02/01/2023"
-mdx: false
 ---
 
 ## **Chapter 1: Introduction**

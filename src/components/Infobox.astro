@@ -18,13 +18,6 @@ const { warning, hint } = Astro.props;
 				<slot />
 			</span>
 		</div>
-
-		<style>
-		.infobox a {
-			color: #1a202c;
-			text-decoration: underline;
-		}	
-		</style>
 	) : null
 }
 {
@@ -38,13 +31,6 @@ const { warning, hint } = Astro.props;
 				<slot />
 			</span>
 		</div>
-
-		<style>
-		.infobox a {
-			color: #1a202c;
-			text-decoration: underline;
-		}	
-		</style>
 	) : null
 }
 {
@@ -58,12 +44,13 @@ const { warning, hint } = Astro.props;
 				<slot />
 			</span>
 		</div>
-
-		<style>
-		.infobox a {
-			color: #1a202c;
-			text-decoration: underline;
-		}	
-		</style>
 	) : null
 }
+
+<style>
+	/* Slotted links come from the parent, so they need :global to be styled here */
+	.infobox :global(a) {
+		color: #1a202c;
+		text-decoration: underline;
+	}
+</style>
