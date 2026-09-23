@@ -21,13 +21,13 @@ const { title, description, pubDate, updatedDate, image, video, filePath } =
         src={video}
         title={title}
         allowfullscreen
-        class="aspect-w-16 aspect-h-9 rounded-2xl w-full"
+        class="aspect-video rounded-2xl w-full"
       />
     ) : image ? (
       <img
         src={image}
         alt={description}
-        class="aspect-w-16 aspect-h-9 max-h-96 w-full rounded-2xl"
+        class="aspect-video max-h-96 w-full rounded-2xl"
       />
     ) : null
   }
